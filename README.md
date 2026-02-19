@@ -57,6 +57,19 @@ Configure your MCP client to run this server via stdio, for example:
 
 Or use `python -m mcp run server.py` if dependencies are installed in the active environment.
 
+### Cursor (mcp.json)
+
+In Cursor, add an entry under `mcpServers` (replace `PATH_TO_UV` and `PATH_TO_PROJECT` with your paths):
+
+```json
+"Shell Server": {
+  "command": "PATH_TO_UV",
+  "args": ["--directory", "PATH_TO_PROJECT", "run", "server.py"]
+}
+```
+
+Example: command can be `uv` (if on PATH) or the full path to the `uv` binary; `PATH_TO_PROJECT` is the directory that contains `pyproject.toml` and `server.py`.
+
 ## Security
 
 **Warning:** The terminal tool runs arbitrary shell commands. Use only in trusted environments and only with clients you control. Do not expose this server to untrusted users or networks.
